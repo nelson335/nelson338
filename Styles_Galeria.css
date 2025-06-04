@@ -1,0 +1,12 @@
+/* Estilos adicionales para el carrusel */
+        .slider img {
+            max-height: 400px; /* Tamaño más pequeño para las imágenes */
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .slide {
+            min-width: 100%;
+            text-align: center;
+        }

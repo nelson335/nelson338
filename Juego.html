@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de la Culebrita</title>
+    <link rel="stylesheet" href="Styles_Juego.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .menu a i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+      <nav>
+        <ul>
+            <div class="menu">
+                <a href="inicio.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="Vocabulario.html"><i class="fas fa-book"></i> Vocabulario</a>
+                <a href="Reflexiones.html"><i class="fas fa-lightbulb"></i> Reflexiones</a>
+                <a href="Galeria.html"><i class="fas fa-images"></i> Galeria</a>
+                <a href="Clases.html"><i class="fas fa-chalkboard-teacher"></i> Clases</a>
+                <a href="Etiquetas.html"><i class="fas fa-tags"></i> Etiquetas</a>
+                <a href="Conclución.html"><i class="fas fa-check-circle"></i> Conclusión</a>
+                <a href="Listado.html"><i class="fas fa-list"></i> Listado</a>
+                <a href="Turismo.html"><i class="fas fa-umbrella-beach"></i> Turismo</a>
+                <a href="Juego.html"><i class="fas fa-gamepad"></i> Juego</a>
+            </div>  
+        </ul>
+    </nav>
+    <center>
+    <div class="game-container">
+        <h1>La Culebrita</h1>
+        <div class="score">Puntuación: <span id="score">0</span></div>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div class="controls">
+            <p>Usa las flechas del teclado para moverte</p>
+            <button id="restartBtn">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+        const restartBtn = document.getElementById('restartBtn');
+
+        const box = 20;
+        let snake = [{x: 9 * box, y: 10 * box}];
+        let food = {
+            x: Math.floor(Math.random() * 20) * box,
+            y: Math.floor(Math.random() * 20) * box
+        };
+        let direction = null;
+        let score = 0;
+        let game;
+
+        function drawGame() {
+            // Limpiar el canvas
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar la serpiente
+            for (let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = i === 0 ? '#4CAF50' : '#8BC34A';
+                ctx.fillRect(snake[i].x, snake[i].y, box, box);
+                
+                ctx.strokeStyle = '#fff';
+                ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+            }
+            
+            // Dibujar la comida
+            ctx.fillStyle = '#FF5722';
+            ctx.fillRect(food.x, food.y, box, box);
+            
+            // Posición actual de la cabeza
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+            
+            // Mover la serpiente según la dirección
+            if (direction === 'LEFT') snakeX -= box;
+            if (direction === 'UP') snakeY -= box;
+            if (direction === 'RIGHT') snakeX += box;
+            if (direction === 'DOWN') snakeY += box;
+            
+            // Comprobar si la serpiente comió la comida
+            if (snakeX === food.x && snakeY === food.y) {
+                score++;
+                scoreElement.textContent = score;
+                food = {
+                    x: Math.floor(Math.random() * 20) * box,
+                    y: Math.floor(Math.random() * 20) * box
+                };
+            } else {
+                // Eliminar la cola si no comió
+                snake.pop();
+            }
+            
+            // Crear nueva cabeza
+            let newHead = {
+                x: snakeX,
+                y: snakeY
+            };
+            
+            // Comprobar colisiones
+            if (
+                snakeX < 0 || snakeY < 0 || 
+                snakeX >= canvas.width || snakeY >= canvas.height || 
+                collision(newHead, snake)
+            ) {
+                clearInterval(game);
+                alert('Game Over! Puntuación: ' + score);
+            }
+            
+            snake.unshift(newHead);
+        }
+        
+        function collision(head, array) {
+            for (let i = 0; i < array.length; i++) {
+                if (head.x === array[i].x && head.y === array[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function changeDirection(e) {
+            if (e.keyCode === 37 && direction !== 'RIGHT') {
+                direction = 'LEFT';
+            } else if (e.keyCode === 38 && direction !== 'DOWN') {
+                direction = 'UP';
+            } else if (e.keyCode === 39 && direction !== 'LEFT') {
+                direction = 'RIGHT';
+            } else if (e.keyCode === 40 && direction !== 'UP') {
+                direction = 'DOWN';
+            }
+        }
+        
+        function startGame() {
+            snake = [{x: 9 * box, y: 10 * box}];
+            direction = null;
+            score = 0;
+            scoreElement.textContent = score;
+            food = {
+                x: Math.floor(Math.random() * 20) * box,
+                y: Math.floor(Math.random() * 20) * box
+            };
+            
+            if (game) clearInterval(game);
+            game = setInterval(drawGame, 100);
+        }
+        
+        document.addEventListener('keydown', changeDirection);
+        restartBtn.addEventListener('click', startGame);
+        
+        startGame();
+    </script>
+    </center>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía completa de etiquetas HTML esenciales para desarrollo web">
+    <meta name="keywords" content="HTML, CSS, JavaScript, etiquetas, desarrollo web, frontend">
+    <title>Etiquetas HTML</title>
+    <link rel="stylesheet" href="Styles_Etiquetas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="Logo-incas.png">
+
+</head>
+
+<body>
+ 
+   <nav>
+        <ul>
+            <div class="menu">
+                <a href="inicio.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="Vocabulario.html"><i class="fas fa-book"></i> Vocabulario</a>
+                <a href="Reflexiones.html"><i class="fas fa-lightbulb"></i> Reflexiones</a>
+                <a href="Galeria.html"><i class="fas fa-images"></i> Galeria</a>
+                <a href="Clases.html"><i class="fas fa-chalkboard-teacher"></i> Clases</a>
+                <a href="Etiquetas.html"><i class="fas fa-tags"></i> Etiquetas</a>
+                <a href="Conclución.html"><i class="fas fa-check-circle"></i> Conclusión</a>
+                <a href="Listado.html"><i class="fas fa-list"></i> Listado</a>
+                <a href="Turismo.html"><i class="fas fa-umbrella-beach"></i> Turismo</a>
+                <a href="Juego.html"><i class="fas fa-gamepad"></i> Juego</a>
+            </div>  
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Etiquetas HTML, CSS y JavaScript Esenciales</h1>
+
+        <div class="content-section">
+            <h2><i class="fas fa-question-circle"></i> ¿Qué son las etiquetas HTML?</h2>
+            <p>Las etiquetas HTML son los elementos fundamentales que dan estructura y significado al contenido de una página web. Actúan como instrucciones que le indican al navegador cómo mostrar cada parte del contenido, desde títulos y párrafos hasta imágenes y enlaces.</p>
+            <p>Cada etiqueta tiene un propósito específico y sigue una sintaxis estandarizada, permitiendo crear documentos web bien organizados y accesibles. Juntas, forman el esqueleto de cualquier sitio web moderno.</p>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-code"></i> Etiquetas Básicas HTML</h2>
+            <p>Estas son las etiquetas fundamentales que todo documento HTML debe contener. Proporcionan la estructura básica y la información esencial que los navegadores necesitan para interpretar correctamente tu página web.</p>
+
+            <div class="tag-container">
+                <div class="tag-card">
+                    <div class="tag-name">&lt;!DOCTYPE&gt;</div>
+                    <div class="tag-description">Declara el tipo de documento y la versión de HTML que se está utilizando. Es la primera línea que debe aparecer en cualquier documento HTML.</div>
+                    <div class="tag-example">&lt;!DOCTYPE html&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;html&gt;</div>
+                    <div class="tag-description">El contenedor principal que engloba todo el documento HTML. Todas las demás etiquetas deben estar dentro de esta.</div>
+                    <div class="tag-example">&lt;html lang="es"&gt;...&lt;/html&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;head&gt;</div>
+                    <div class="tag-description">Contiene metadatos sobre el documento, como el título, enlaces a hojas de estilo, scripts y otra información que no se muestra directamente en la página.</div>
+                    <div class="tag-example">&lt;head&gt;...&lt;/head&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;meta&gt;</div>
+                    <div class="tag-description">Proporciona metadatos sobre el documento HTML, como descripción, autor, palabras clave y configuración de la vista.</div>
+                    <div class="tag-example">&lt;meta charset="UTF-8"&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;link&gt;</div>
+                    <div class="tag-description">Establece la relación entre el documento actual y un recurso externo, como hojas de estilo CSS.</div>
+                    <div class="tag-example">&lt;link rel="stylesheet" href="styles.css"&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-heading"></i> Etiquetas de Contenido HTML</h2>
+            <p>Estas etiquetas definen la estructura del contenido visible de tu página web. Organizan el texto, imágenes y otros elementos que los usuarios ven y con los que interactúan.</p>
+
+            <div class="tag-container">
+                <div class="tag-card">
+                    <div class="tag-name">&lt;body&gt;</div>
+                    <div class="tag-description">Contiene todo el contenido visible de la página web, como texto, imágenes, videos y otros elementos multimedia.</div>
+                    <div class="tag-example">&lt;body&gt;...&lt;/body&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;h1&gt;-&lt;h6&gt;</div>
+                    <div class="tag-description">Definen encabezados de diferentes niveles de importancia (h1 es el más importante, h6 el menos). Esenciales para la estructura semántica y SEO.</div>
+                    <div class="tag-example">&lt;h1&gt;Título Principal&lt;/h1&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;p&gt;</div>
+                    <div class="tag-description">Define un párrafo de texto. Automáticamente añade espacio antes y después del texto para separarlo de otros elementos.</div>
+                    <div class="tag-example">&lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;span&gt;</div>
+                    <div class="tag-description">Contenedor en línea genérico para contenido que no tiene significado semántico, útil para aplicar estilos.</div>
+                    <div class="tag-example">&lt;span class="resaltar"&gt;texto&lt;/span&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</div>
+                    <div class="tag-description">Crea listas no ordenadas (ul), ordenadas (ol) y elementos de lista (li).</div>
+                    <div class="tag-example">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ul&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-link"></i> Etiquetas de Enlace y Multimedia</h2>
+            <p>Estas etiquetas permiten conectar tu página con otros recursos, ya sean páginas externas, secciones internas o elementos multimedia que enriquecen la experiencia del usuario.</p>
+
+            <div class="tag-container">
+                <div class="tag-card">
+                    <div class="tag-name">&lt;a&gt;</div>
+                    <div class="tag-description">Crea hipervínculos a otras páginas web, archivos, ubicaciones dentro de la misma página, o cualquier otra URL.</div>
+                    <div class="tag-example">&lt;a href="https://ejemplo.com"&gt;Visitar Ejemplo&lt;/a&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;img&gt;</div>
+                    <div class="tag-description">Inserta una imagen en el documento. Requiere el atributo src para especificar la ruta de la imagen y alt para texto alternativo.</div>
+                    <div class="tag-example">&lt;img src="imagen.jpg" alt="Descripción"&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;video&gt;</div>
+                    <div class="tag-description">Inserta contenido de video en el documento. Soporta múltiples formatos como MP4, WebM y Ogg.</div>
+                    <div class="tag-example">&lt;video src="video.mp4" controls&gt;&lt;/video&gt;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">&lt;audio&gt;</div>
+                    <div class="tag-description">Inserta contenido de audio en el documento. Soporta formatos como MP3, WAV y Ogg.</div>
+                    <div class="tag-example">&lt;audio src="audio.mp3" controls&gt;&lt;/audio&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fab fa-css3-alt"></i> Propiedades CSS Esenciales</h2>
+            <p>CSS (Cascading Style Sheets) es el lenguaje que controla el diseño visual de las páginas web. Estas son algunas de las propiedades más importantes:</p>
+
+            <div class="tag-container">
+                <div class="tag-card">
+                    <div class="tag-name">color</div>
+                    <div class="tag-description">Define el color del texto. Puede ser un nombre de color, código hexadecimal, RGB o HSL.</div>
+                    <div class="tag-example">color: #333;<br>color: red;<br>color: rgb(255, 0, 0);</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">font-size</div>
+                    <div class="tag-description">Controla el tamaño del texto. Se puede especificar en px, em, rem, % u otras unidades.</div>
+                    <div class="tag-example">font-size: 16px;<br>font-size: 1.2em;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">margin</div>
+                    <div class="tag-description">Establece el espacio exterior alrededor de un elemento. Controla la separación entre elementos.</div>
+                    <div class="tag-example">margin: 10px;<br>margin: 10px 20px;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">padding</div>
+                    <div class="tag-description">Establece el espacio interior de un elemento, entre su contenido y su borde.</div>
+                    <div class="tag-example">padding: 15px;<br>padding: 10px 20px;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">display</div>
+                    <div class="tag-description">Controla cómo se muestra un elemento (en bloque, en línea, flex, grid, etc.).</div>
+                    <div class="tag-example">display: block;<br>display: flex;<br>display: none;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fab fa-js-square"></i> Conceptos Básicos de JavaScript</h2>
+            <p>JavaScript es el lenguaje de programación que permite agregar interactividad a las páginas web. Estos son algunos conceptos fundamentales:</p>
+
+            <div class="tag-container">
+                <div class="tag-card">
+                    <div class="tag-name">Variables</div>
+                    <div class="tag-description">Contenedores para almacenar datos. Se declaran con let, const o var.</div>
+                    <div class="tag-example">let nombre = "Juan";<br>const PI = 3.1416;</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">Funciones</div>
+                    <div class="tag-description">Bloques de código reutilizables que realizan una tarea específica.</div>
+                    <div class="tag-example">function saludar() {<br>&nbsp;&nbsp;console.log("Hola");<br>}</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">Eventos</div>
+                    <div class="tag-description">Acciones que ocurren en el navegador (clic, teclado, carga, etc.) a las que puedes responder.</div>
+                    <div class="tag-example">document.getElementById("btn").addEventListener("click", function() {<br>&nbsp;&nbsp;alert("Hiciste clic!");<br>});</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">DOM</div>
+                    <div class="tag-description">Document Object Model - Representación del documento HTML que permite modificarlo con JavaScript.</div>
+                    <div class="tag-example">document.querySelector(".clase")<br>elemento.textContent = "Nuevo texto"</div>
+                </div>
+
+                <div class="tag-card">
+                    <div class="tag-name">Condicionales</div>
+                    <div class="tag-description">Estructuras que permiten ejecutar código bajo ciertas condiciones.</div>
+                    <div class="tag-example">if (edad >= 18) {<br>&nbsp;&nbsp;console.log("Mayor de edad");<br>}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Nelson Alfaro - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

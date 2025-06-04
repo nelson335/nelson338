@@ -1,0 +1,171 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <link rel="stylesheet" href="styles_turismo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="Logo-incas.png">
+</head>
+
+<body>
+     
+     <nav>
+        <ul>
+            <div class="menu">
+                <a href="inicio.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="Vocabulario.html"><i class="fas fa-book"></i> Vocabulario</a>
+                <a href="Reflexiones.html"><i class="fas fa-lightbulb"></i> Reflexiones</a>
+                <a href="Galeria.html"><i class="fas fa-images"></i> Galeria</a>
+                <a href="Clases.html"><i class="fas fa-chalkboard-teacher"></i> Clases</a>
+                <a href="Etiquetas.html"><i class="fas fa-tags"></i> Etiquetas</a>
+                <a href="Conclución.html"><i class="fas fa-check-circle"></i> Conclusión</a>
+                <a href="Listado.html"><i class="fas fa-list"></i> Listado</a>
+                <a href="Turismo.html"><i class="fas fa-umbrella-beach"></i> Turismo</a>
+                <a href="Juego.html"><i class="fas fa-gamepad"></i> Juego</a>
+            </div>  
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <h1><i class="fas fa-camera-retro"></i> Mi Galería</h1>
+        
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="Galeria/1.jpeg" alt="Imagen 1">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/2.jpeg" alt="Imagen 2">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/3.jpeg" alt="Imagen 3">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/4.jpeg" alt="Imagen 4">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/5.jpeg" alt="Imagen 5">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/6.jpeg" alt="Imagen 6">
+                </div>
+                <div class="slide">
+                    <img src="Galeria/7.jpeg" alt="Imagen 7">
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Anterior</button>
+            <button class="slider-btn" id="nextBtn">Siguiente <i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="slider-indicators" id="indicators">
+            <!-- Los indicadores se generan automáticamente con JavaScript -->
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Nelson Alfaro - Todos los derechos reservados</p>
+    </footer>
+    
+    
+    <script>
+        // Configuración del carrusel automático más rápido
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            let autoSlideInterval;
+            const slideDuration = 2000; // 2 segundos (más rápido que antes)
+            
+            // Crear indicadores
+            slides.forEach((slide, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            // Función para actualizar el carrusel
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar indicadores
+                document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Ir a una diapositiva específica
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlider();
+                resetAutoSlide();
+            }
+            
+            // Siguiente diapositiva
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateSlider();
+            }
+            
+            // Diapositiva anterior
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Configuración del auto-avance
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, slideDuration);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+            
+            // Iniciar auto-avance
+            startAutoSlide();
+            
+            // Pausar auto-avance al interactuar
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+            
+            // Manejo de redimensionamiento
+            window.addEventListener('resize', updateSlider);
+        });
+    </script>
+</body>
+</html>
